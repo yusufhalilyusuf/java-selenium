@@ -53,4 +53,8 @@ public class ApiHelper {
         return given().contentType(ContentType.JSON).when().delete("/articles/"+id).then().assertThat().statusCode(204).extract().response();
     }
 
+    public String cookie (){
+        given().contentType(ContentType.JSON).when().get("http://localhost:8000/jira/rest/auth/1/session")
+    }
+
 }
