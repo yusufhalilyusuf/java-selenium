@@ -25,7 +25,10 @@ public class ApiTest {
     commentIdToDelete.forEach(x->{
         helper.deleteComment(x);
     });
+    if (articleIdToDelete!=0){
+
     helper.deleteArticle(articleIdToDelete);
+    }
     }
 
     @Test
@@ -61,4 +64,7 @@ public class ApiTest {
     Response response = helper.postArticle();
     articleIdToDelete = response.body().jsonPath().get("article[0].article_id");
     }
+
+
+
 }

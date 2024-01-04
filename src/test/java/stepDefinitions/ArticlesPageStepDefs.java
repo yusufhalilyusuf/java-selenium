@@ -36,7 +36,7 @@ public class ArticlesPageStepDefs extends Base {
     }
     @Then("all articles are shown on the page")
     public void all_articels_are_shown_on_the_page() {
-        assertEquals(articlesPage.articleCount(), 37);
+        assertEquals(articlesPage.articleCount(), 40);
     }
 
     @Then("^sorted by (Date|Votes|Comment Count) as default$")
