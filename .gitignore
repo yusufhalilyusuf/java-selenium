@@ -2,7 +2,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-src/test/resources/jiraCreds.json
+/src/test/resources/jiraCreds.json
 
 ### IntelliJ IDEA ###
 .idea/modules.xml

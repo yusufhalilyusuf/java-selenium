@@ -25,7 +25,10 @@ public class ApiTest {
     commentIdToDelete.forEach(x->{
         helper.deleteComment(x);
     });
+    if (articleIdToDelete!=0){
+
     helper.deleteArticle(articleIdToDelete);
+    }
     }
 
     @Test

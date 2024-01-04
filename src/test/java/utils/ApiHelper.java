@@ -1,7 +1,12 @@
 package utils;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.filter.log.LogDetail;
 import io.restassured.filter.session.SessionFilter;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,19 +20,19 @@ import static io.restassured.RestAssured.*;
 
 public class ApiHelper {
      SessionFilter session = new SessionFilter();
-
     public ApiHelper() {
         baseURI = "https://nc-news-pcfh.onrender.com/api";
     }
-
+    RequestSpecification req = new RequestSpecBuilder().setContentType(ContentType.JSON).log(LogDetail.ALL).setBaseUri("https://nc-news-pcfh.onrender.com/api").build();
+    ResponseSpecification res = new ResponseSpecBuilder().expectStatusCode(201).expectContentType(ContentType.JSON).build();
 
 
     public Response addComment(int id, String username, String comment) {
         Map<String, Object> bodyObj = new HashMap<>();
         bodyObj.put("body", comment);
         bodyObj.put("username", username);
-        return given().log().all().contentType(ContentType.JSON).body(bodyObj).when().post("articles/" + id + "/comments").then().assertThat().statusCode(201).extract().response();
-
+//        return given().log().all().contentType(ContentType.JSON).body(bodyObj).when().post("articles/" + id + "/comments").then().assertThat().statusCode(201).extract().response();
+        return given().spec(req).body(bodyObj).when().post("articles/" + id + "/comments").then().spec(res).extract().response();
     }
 
     public void deleteComment(int id) {
