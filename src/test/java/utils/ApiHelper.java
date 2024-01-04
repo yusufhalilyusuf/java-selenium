@@ -58,7 +58,7 @@ public class ApiHelper {
     public String getCookie() {
         Response response = null;
         try {
-            return given().contentType(ContentType.JSON).when().body(Files.readAllBytes(Paths.get("src/test/resources/jiraCreds.json"))).filter(session).when().post("http://localhost:8000/rest/auth/1/session")
+            return given().contentType(ContentType.JSON).when().body(Files.readAllBytes(Paths.get("src/test/resources/credsJira.json"))).filter(session).when().post("http://localhost:8000/rest/auth/1/session")
                     .then().assertThat().statusCode(200)
                     .extract().response().getCookie("JSESSIONID");
         } catch (IOException e) {
