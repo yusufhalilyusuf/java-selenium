@@ -1,0 +1,14 @@
+{
+
+  "fields": {
+    "project": {
+      "key": "NC"
+    },
+    "summary": "something's wrong2",
+    "description":"test description2",
+    "issuetype": {
+      "name": "Bug"
+    }
+  }
+
+}

@@ -61,4 +61,7 @@ public class ApiTest {
     Response response = helper.postArticle();
     articleIdToDelete = response.body().jsonPath().get("article[0].article_id");
     }
+
+
+
 }
