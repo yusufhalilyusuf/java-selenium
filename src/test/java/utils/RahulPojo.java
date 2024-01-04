@@ -58,7 +58,7 @@ public class RahulPojo {
         this.linkedIn = linkedIn;
     }
 
-    public class CoursePojo {
+    public static class CoursePojo {
         private List<WebAutomationPojo> webAutomation;
         private List<WebAutomationPojo> api;
         private List<WebAutomationPojo> mobile;
